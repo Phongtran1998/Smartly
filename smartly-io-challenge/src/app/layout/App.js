@@ -20,8 +20,13 @@ const App = () => {
       setCats(res.data);
     } catch (e) {
       setLoading(false);
-      setError("Error fetching cats");
-      console.log(e);
+      if (e.response.data.error) {
+        setError(e.response.data.error);
+        console.log(e.response.data.error);
+      } else {
+        setError("Error fetching cats");
+        console.log(e);
+      }
     }
   };
 
