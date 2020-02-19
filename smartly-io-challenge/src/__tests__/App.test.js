@@ -5,8 +5,7 @@ import {
   render,
   fireEvent,
   waitForElement,
-  cleanup,
-  act
+  cleanup
 } from "@testing-library/react";
 import App from "../app/layout/App";
 afterEach(() => cleanup());
@@ -28,7 +27,8 @@ describe("rendering the application", () => {
     );
     done();
   });
-  test("After loading appears, if there is no error, a lif will be rendered", async done => {
+
+  test("After loading appears, if there is no error, a list will be rendered", async done => {
     const component = render(<App />);
     const button = component.getByText("Fetch Cats");
 

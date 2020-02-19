@@ -14,7 +14,7 @@ const App = () => {
   const handleFetchCats = async () => {
     setLoading(true);
     try {
-      const res = await axios.get("/facts/randoms");
+      const res = await axios.get("http://localhost:4000/facts/randoms");
       setError("");
       setLoading(false);
       setCats(res.data);
