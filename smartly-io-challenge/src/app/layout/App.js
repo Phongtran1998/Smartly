@@ -20,8 +20,13 @@ const App = () => {
       setCats(res.data);
     } catch (e) {
       setLoading(false);
-      setError("Error fetching cats");
-      console.log(e);
+      if (e.response.data.error) {
+        setError(e.response.data.error);
+        console.log(e.response.data.error);
+      } else {
+        setError("Error fetching cats");
+        console.log(e);
+      }
     }
   };
 
@@ -37,6 +42,11 @@ const App = () => {
       ) : (
         <CatList error={error} cats={cats} />
       )}
+      <div className="ui inverted vertical footer segment form-page">
+        <Container style={{ textAlign: "center" }}>
+          Phong Tran - Smartly Challenge.All right reserved
+        </Container>
+      </div>
     </Container>
   );
 };
