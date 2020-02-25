@@ -25,7 +25,7 @@ const App = () => {
         console.log(e.response.data.error);
       } else {
         setError("Error fetching cats");
-        console.log(e);
+        console.log(e.response);
       }
     }
   };
